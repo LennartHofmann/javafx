@@ -1,17 +1,16 @@
 package chess;
 
+
+import javafx.scene.shape.*;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Box;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
 public class Launcher extends Application{
 
-	Layout grid = new Layout();
+	Chess chess;
 
 	
 	public static void main(String[] args) {
@@ -20,29 +19,39 @@ public class Launcher extends Application{
 	
 	@Override
 	public void start(Stage stage01) throws Exception {
+		this.chess = new Chess();
 		
-		
-		grid.initialise();
-		this.grid.kc.grid = this.grid;
-		this.grid.rc.grid = this.grid;
-	
+		this.chess.kc.chess = this.chess;
+		this.chess.rook.chess = this.chess;
+		this.chess.rc.chess = this.chess;
+				
 		
 		//König setzen
-		this.grid.getChildren().remove(this.grid.feld[3][4]);
-		this.grid.feld[3][4] = new Figure();
-		this.grid.feld[3][4].initialise(false, 6, 3, 4);
-		this.grid.feld[3][4].setOnAction(this.grid.kc);
-		this.grid.add(this.grid.feld[3][4], 3, 4);
+		this.chess.grid.getChildren().remove(this.chess.grid.feld[3][4]);
+		this.chess.grid.feld[3][4] = new Figure();
+		this.chess.grid.feld[3][4].initialise(false, 6, 3, 4);
+		this.chess.grid.feld[3][4].setOnAction(this.chess.kc);
+		this.chess.grid.add(this.chess.grid.feld[3][4], 3, 4);
 		
 		//2. König setzen
-		this.grid.getChildren().remove(this.grid.feld[5][6]);
-		this.grid.feld[5][6] = new Figure();
-		this.grid.feld[5][6].initialise(false, 6, 5, 6);
-		this.grid.feld[5][6].setOnAction(this.grid.kc);
-		this.grid.add(this.grid.feld[5][6], 5, 6);
+		this.chess.grid.getChildren().remove(this.chess.grid.feld[6][6]);
+		this.chess.grid.feld[6][6] = new Figure();
+		this.chess.grid.feld[6][6].initialise(true, 6, 6, 6);
+		this.chess.grid.feld[6][6].setOnAction(this.chess.kc);
+		this.chess.grid.add(this.chess.grid.feld[6][6], 6, 6);
 		
-		Scene scene01 = new Scene(grid);
-		stage01.setScene(scene01);
+		
+		//Turm setzten
+		this.chess.grid.getChildren().remove(this.chess.grid.feld[3][3]);
+		this.chess.grid.feld[3][3] = new Figure();
+		this.chess.grid.feld[3][3].initialise(true, 2, 3, 3);
+		this.chess.grid.feld[3][3].setOnAction(this.chess.rook);
+		this.chess.grid.add(this.chess.grid.feld[3][3], 3, 3);
+		
+
+	
+		
+		stage01.setScene(new Scene(chess));
 		stage01.setTitle("Chess");
 		stage01.show();
 		

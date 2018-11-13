@@ -7,24 +7,26 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 public class King_Controller implements  EventHandler<javafx.event.ActionEvent>{
 
-	public Layout grid;
+	public Chess chess;
 	
-	public boolean isSelected = false;
+	boolean isSelected = false;
 		
-
+	boolean isWhite;
 	
 	@Override
-	public void handle(javafx.event.ActionEvent arg0) {		
-		int spalte = Layout.getColumnIndex((Node) arg0.getTarget());
-		int reihe = Layout.getRowIndex((Node) arg0.getTarget());
+	public void handle(javafx.event.ActionEvent arg0) {				
+		int spalte = GridPane.getColumnIndex((Node) arg0.getTarget());
+		int reihe = GridPane.getRowIndex((Node) arg0.getTarget());
 		
 		int moglSpalten[] = new int[8];
 		int moglReihen[] = new int[8];
 
-
+		this.isWhite = this.chess.grid.getFigure(spalte, reihe).isWhite();
 		
 		for (int i = 0; i<=7; i++) {
 			moglSpalten[i] = spalte;
@@ -46,46 +48,52 @@ public class King_Controller implements  EventHandler<javafx.event.ActionEvent>{
 			moglReihen[2] = (reihe + 1);
 		}
 		
-		if(this.isSelected==false) {	
-			for (int i = 0; i<=7; i++) {			
-				for (int z = 0; z<=7; z++) {
-					if(moglSpalten[i]==spalte && moglReihen[z]==reihe) {
-					}
-					else {
-						if((this.grid.getFigure(moglSpalten[i], moglReihen[z])).getType()==0 && (this.grid.getFigure(moglSpalten[i], moglReihen[z])).isOccupied==false) {
-							(this.grid.getFigure(moglSpalten[i], moglReihen[z])).setText("*");
-							(this.grid.getFigure(moglSpalten[i], moglReihen[z])).setOnAction(this.grid.rc);
+		
+		if(this.chess.isWhitesTurn==this.isWhite) {		
+			if(this.isSelected==false) {	
+				for (int i = 0; i<=7; i++) {			
+					for (int z = 0; z<=7; z++) {
+						if(moglSpalten[i]==spalte && moglReihen[z]==reihe) {
+						}
+						else {
+							if((this.chess.grid.getFigure(moglSpalten[i], moglReihen[z])).getType()==0 && (this.chess.grid.getFigure(moglSpalten[i], moglReihen[z])).isOccupied==false) {
+								(this.chess.grid.getFigure(moglSpalten[i], moglReihen[z])).setText("*");
+								(this.chess.grid.getFigure(moglSpalten[i], moglReihen[z])).setOnAction(this.chess.rc);
+							}
 						}
 					}
 				}
+				
+				this.chess.grid.selSpalte = spalte;
+				this.chess.grid.selReihe = reihe;
+				this.chess.selectedFigure = 6;
+				this.isSelected = true;
 			}
-			
-			this.grid.selSpalte = spalte;
-			this.grid.selReihe = reihe;
-			
-			this.isSelected = true;
-		}
-		else {
-			for (int i = 0; i<=7; i++) {			
-				for (int z = 0; z<=7; z++) {
-					if(moglSpalten[i]==spalte && moglReihen[z]==reihe) {
-					}
-					else if (this.grid.getFigure(moglSpalten[i], moglReihen[z]).getText().equals("*")){
-						(this.grid.getFigure(moglSpalten[i], moglReihen[z])).setText("");
-						(this.grid.getFigure(moglSpalten[i], moglReihen[z])).setOnAction(null);
+			else if (this.isSelected==true && this.chess.grid.selSpalte==spalte && this.chess.grid.selReihe==reihe){
+				this.chess.grid.deletAllStars();
+				this.isSelected = false;
+				this.chess.grid.selSpalte = null;
+				this.chess.grid.selReihe = null;
+			}
+			else if (this.isSelected==true){
+				this.chess.grid.deletAllStars();
+				for (int i = 0; i <=7; i++) {
+					for (int z = 0; z <=7; z++) {
+						if(this.chess.grid.selSpalte==spalte && this.chess.grid.selReihe==reihe) {
+						}
+						else if((this.chess.grid.getFigure(moglSpalten[i], moglReihen[z])).getType()==0 && (this.chess.grid.getFigure(moglSpalten[i], moglReihen[z])).isOccupied==false) {
+								(this.chess.grid.getFigure(moglSpalten[i], moglReihen[z])).setText("*");
+								(this.chess.grid.getFigure(moglSpalten[i], moglReihen[z])).setOnAction(this.chess.rc);
+						}
 					}
 				}
+				
+				this.chess.grid.selSpalte = spalte;
+				this.chess.grid.selReihe = reihe;
+				this.isSelected = true;
+				
 			}
-			this.isSelected = false;
-			this.grid.selSpalte = null;
-			this.grid.selReihe = null;
 		}
-		
-		
-		
-	
-		
-		
 		
 	}
 

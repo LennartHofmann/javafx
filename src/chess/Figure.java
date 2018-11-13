@@ -6,9 +6,9 @@ import javafx.scene.text.Font;
 public class Figure extends Button{
 	boolean isThreatend = false;
 	boolean isOccupied = false;
-	
 	private boolean isWhite;
-	private Font textGrösse = new Font(50);
+	private Font textgroesse = new Font(50);
+	
 	//isOccupied = true;
 	
 	
@@ -24,11 +24,11 @@ public class Figure extends Button{
 	 */
 
 	public Figure() {
-		this.isOccupied = false;
+		//this.isOccupied = false;
 		this.type = 0;
 		super.setPrefSize(80, 80);
 		super.setMaxSize(80, 80);
-		super.setFont(textGrösse);
+		super.setFont(textgroesse);
 	}
 	
 	public boolean isWhite() {
@@ -51,16 +51,28 @@ public class Figure extends Button{
 		if(type!=0) {
 			this.isOccupied = true;
 		}
+		
 		this.isWhite = isWhite;
+		
+		if(this.isWhite==true) {
+			if(((i+z) % 2)==0) {
+				this.setStyle("-fx-background-color: #edb99a; -fx-padding: 0px; -fx-text-fill: #FFFFFF");
+			}
+			else {
+				this.setStyle("-fx-background-color: #954D03; -fx-padding:0px; -fx-text-fill: #FFFFFF");
+			}
+		}
+		else if(this.isWhite==false) {
+			if(((i+z) % 2)==0) {
+				this.setStyle("-fx-background-color: #edb99a; -fx-padding: 0px; -fx-text-fill: #000000");
+			}
+			else {
+				this.setStyle("-fx-background-color: #954D03; -fx-padding:0px; -fx-text-fill: #000000");
+			}
+		}
+		
 		this.type = type;
-		
-		if(((i+z) % 2)==0) {
-			this.setStyle("-fx-background-color: #FFFFFF; -fx-padding:0px");
-		}
-		else {
-			this.setStyle("-fx-background-color: #954D03; -fx-padding:0px");
-		}
-		
+				
 		if(type==0) {
 			
 		}
@@ -85,9 +97,6 @@ public class Figure extends Button{
 		
 	}
 	
-	public Figure clone(Figure f) {
-		return f;
-	}
 	
 	
 }
