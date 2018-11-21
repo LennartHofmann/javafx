@@ -6,7 +6,6 @@ import javafx.scene.input.MouseEvent;
 
 public class MouseController implements javafx.event.EventHandler<MouseEvent>{
 
-
 	
 	@Override
 	public void handle(MouseEvent event) {
@@ -21,9 +20,7 @@ public class MouseController implements javafx.event.EventHandler<MouseEvent>{
 				((Button)(event.getSource())).setStyle("-fx-background-color: #FFFFFF");
 			}
 		}
-			
-		
-		
+
 		
 	}
 

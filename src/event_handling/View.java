@@ -19,7 +19,7 @@ public class View extends VBox{
 	HBox arrows;
 	
 	public void initialise() {
-		this.changeColor = new Button("Klick um Farbe ändern");
+		this.changeColor = new Button("Klick mich um meine Farbe zu ändern!");
 		this.changeColor.setFont(new Font(30));
 		this.changeColor.setOnMouseClicked(this.mc);
 		this.getChildren().add(this.changeColor);
@@ -31,7 +31,6 @@ public class View extends VBox{
 		this.setOnKeyPressed(kc);
 		
 	}
-
 	
 	public void initArrowButtons() {
 		Font arrowFont = new Font(40);
