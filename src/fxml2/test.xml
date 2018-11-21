@@ -1,0 +1,11 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Slider?>
+
+
+<VBox>
+	<Button>
+		<text>Klick mich!</text>
+	</Button>
+</VBox>
