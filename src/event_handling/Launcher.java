@@ -20,7 +20,9 @@ public class Launcher extends Application{
 		View background = new View();
 		MouseController mc = new MouseController();
 		KeyController kc = new KeyController();
+		ActionController ac = new ActionController();
 		
+		background.ac = ac;
 		background.mc = mc;
 		background.kc = kc;
 		background.kc.view = background;

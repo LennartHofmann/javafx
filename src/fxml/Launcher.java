@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -18,15 +19,16 @@ public class Launcher extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		String xmlpath = "src/fxml/test.xml";
-		//String xmlpath = "test.xml";
 		
-		File f = new File(xmlpath);
-		VBox box = new VBox();
+		String fxmlpath = "src/fxml/anchorPane.fxml";
+		File f = new File(fxmlpath);
 		
-		BarChart<String, Number> br = FXMLLoader.load(f.toURI().toURL());
+		FXMLLoader loader = new FXMLLoader(f.toURI().toURL());
 		
-		Scene scene1 = new Scene(br);
+		AnchorPane ap = loader.load();
+		
+
+		Scene scene1 = new Scene(ap);
 		primaryStage.setScene(scene1);
 		primaryStage.show();
 		

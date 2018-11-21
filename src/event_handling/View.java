@@ -9,6 +9,7 @@ public class View extends VBox{
 
 	MouseController mc;
 	KeyController kc;
+	ActionController ac;
 	
 	Button changeColor;
 	Button left;
@@ -16,19 +17,29 @@ public class View extends VBox{
 	Button down;
 	Button right;
 	
+	Button button2;
+	
 	HBox arrows;
 	
 	public void initialise() {
 		this.changeColor = new Button("Klick mich um meine Farbe zu ändern!");
 		this.changeColor.setFont(new Font(30));
 		this.changeColor.setOnMouseClicked(this.mc);
+		
 		this.getChildren().add(this.changeColor);
 		
 		this.arrows = new HBox();
 		
 		initArrowButtons();
+		
 		this.getChildren().add(this.arrows);
 		this.setOnKeyPressed(kc);
+		
+		this.button2 = new Button("Löse mich aus!");
+		this.button2.setFont(new Font(30));
+		
+		this.button2.setOnAction(this.ac);
+		this.getChildren().add(button2);
 		
 	}
 	
