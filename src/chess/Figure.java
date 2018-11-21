@@ -7,7 +7,7 @@ public class Figure extends Button{
 	boolean isThreatend = false;
 	boolean isOccupied = false;
 	private boolean isWhite;
-	private Font textgroesse = new Font(50);
+	private Font textgroesse = new Font(55);
 	
 	//isOccupied = true;
 	
@@ -27,6 +27,7 @@ public class Figure extends Button{
 		//this.isOccupied = false;
 		this.type = 0;
 		super.setPrefSize(80, 80);
+		super.setMinSize(80, 80);
 		super.setMaxSize(80, 80);
 		super.setFont(textgroesse);
 	}
@@ -53,47 +54,68 @@ public class Figure extends Button{
 		}
 		
 		this.isWhite = isWhite;
-		
-		if(this.isWhite==true) {
-			if(((i+z) % 2)==0) {
-				this.setStyle("-fx-background-color: #edb99a; -fx-padding: 0px; -fx-text-fill: #FFFFFF");
-			}
-			else {
-				this.setStyle("-fx-background-color: #954D03; -fx-padding:0px; -fx-text-fill: #FFFFFF");
-			}
-		}
-		else if(this.isWhite==false) {
-			if(((i+z) % 2)==0) {
-				this.setStyle("-fx-background-color: #edb99a; -fx-padding: 0px; -fx-text-fill: #000000");
-			}
-			else {
-				this.setStyle("-fx-background-color: #954D03; -fx-padding:0px; -fx-text-fill: #000000");
-			}
-		}
-		
 		this.type = type;
-				
-		if(type==0) {
+		
+		if(((i+z) % 2)==0) {
+			this.setStyle("-fx-background-color: #edb99a; -fx-padding: 0px");
+		}
+		else {
+			this.setStyle("-fx-background-color: #954D03; -fx-padding:0px");
+		}
+		
+		
+		if(this.type==0) {
 			
 		}
-		else if (type==1) {
-			super.setText("B");
+		else if (this.type==1) {
+			if(this.isWhite==true) {
+				super.setText("\u2659");
+			}
+			else {
+				super.setText("\u265F");
+			}
 		}
-		else if (type==2) {
-			super.setText("T");
+		else if (this.type==2) {
+			if(this.isWhite==true) {
+				super.setText("\u2656");
+			}
+			else {
+				super.setText("\u265C");
+			}
 		}
-		else if (type==3) {
-			super.setText("P");
+		else if (this.type==3) {
+			if(this.isWhite==true) {
+				super.setText("\u2658");
+			}
+			else {
+				super.setText("\u265E");
+			}
 		}
-		else if (type==4) {
-			super.setText("L");
+		else if (this.type==4) {
+			if(this.isWhite==true) {
+				super.setText("\u2657");
+			}
+			else {
+				super.setText("\u265D");
+			}
 		}
-		else if (type==5) {
-			super.setText("D");
+		else if (this.type==5) {
+			if(this.isWhite==true) {
+				super.setText("\u2655");
+			}
+			else {
+				super.setText("\u265B");
+			}
 		}
-		else if (type==6) {
-			super.setText("K");
+		else if (this.type==6) {
+			if(this.isWhite==true) {
+				super.setText("\u2654");
+			}
+			else {
+				super.setText("\u265A");
+			}
 		}
+		
 		
 	}
 	

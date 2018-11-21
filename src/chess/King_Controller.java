@@ -27,6 +27,7 @@ public class King_Controller implements  EventHandler<javafx.event.ActionEvent>{
 		int moglReihen[] = new int[8];
 
 		this.isWhite = this.chess.grid.getFigure(spalte, reihe).isWhite();
+
 		
 		for (int i = 0; i<=7; i++) {
 			moglSpalten[i] = spalte;
@@ -50,6 +51,9 @@ public class King_Controller implements  EventHandler<javafx.event.ActionEvent>{
 		
 		
 		if(this.chess.isWhitesTurn==this.isWhite) {		
+			this.chess.grid.deleteAllStars();
+			this.chess.deselectOtherControllers(6);	
+			
 			if(this.isSelected==false) {	
 				for (int i = 0; i<=7; i++) {			
 					for (int z = 0; z<=7; z++) {
@@ -70,13 +74,13 @@ public class King_Controller implements  EventHandler<javafx.event.ActionEvent>{
 				this.isSelected = true;
 			}
 			else if (this.isSelected==true && this.chess.grid.selSpalte==spalte && this.chess.grid.selReihe==reihe){
-				this.chess.grid.deletAllStars();
+				this.chess.grid.deleteAllStars();
 				this.isSelected = false;
 				this.chess.grid.selSpalte = null;
 				this.chess.grid.selReihe = null;
 			}
 			else if (this.isSelected==true){
-				this.chess.grid.deletAllStars();
+				this.chess.grid.deleteAllStars();
 				for (int i = 0; i <=7; i++) {
 					for (int z = 0; z <=7; z++) {
 						if(this.chess.grid.selSpalte==spalte && this.chess.grid.selReihe==reihe) {
