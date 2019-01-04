@@ -4,15 +4,15 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 
 public class Figure extends Button{
-	boolean isThreatend = false;
-	boolean isOccupied = false;
+	
+	private boolean isThreatend = false;
 	private boolean isWhite;
 	private Font textgroesse = new Font(55);
 	
-	//isOccupied = true;
 	
 	
 	private int type;
+	
 	/*
 	 * type = 0 -> leer
 	 * type = 1 -> Bauer

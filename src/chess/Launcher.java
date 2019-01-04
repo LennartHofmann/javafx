@@ -20,16 +20,12 @@ public class Launcher extends Application{
 	@Override
 	public void start(Stage stage01) throws Exception {
 		this.chess = new Chess();
+
 		
-		this.chess.queen.chess = this.chess;
-		this.chess.king.chess = this.chess;
-		this.chess.rook.chess = this.chess;
-		this.chess.bishop.chess = this.chess;
-		this.chess.rc.chess = this.chess;	
-		this.chess.pawn.chess = this.chess;
-		this.chess.knight.chess = this.chess;
 		
 		this.chess.grid.chess = this.chess;
+		
+		
 		
 		this.chess.grid.initFigures();
 		

@@ -16,14 +16,7 @@ public class Chess extends HBox{
 	Grid grid = new Grid();
 	Controls controls;
 	
-	public Queen_Controller queen = new Queen_Controller();
-	public King_Controller king = new King_Controller();
-	public Rook_Controller rook = new Rook_Controller();
-	public Bishop_Controller bishop = new Bishop_Controller();
-	public Pawn_Controller pawn = new Pawn_Controller();
-	public Knight_Controller knight = new Knight_Controller();
-	public Recieve_Controller rc = new Recieve_Controller();
-	
+
 	
 	public boolean isWhitesTurn = true;
 	public int selectedFigure = 0;
@@ -49,9 +42,9 @@ public class Chess extends HBox{
 		this.isWhitesTurn = isWhitesTurn;
 	}
 	
-	
+	/*
 	public void deselectOtherControllers(int i) {
-		//resette alle Controller, auﬂer den gew‰hlten (‹bergeben via int i)
+		//Resette alle Controller, auﬂer den gew‰hlten (‹bergeben via int i)
 		if(i!=0) {
 			
 		}
@@ -74,8 +67,6 @@ public class Chess extends HBox{
 			this.king.isSelected = false;
 		}
 	}
-	
-	
-	
-	
+	*/
+		
 }
