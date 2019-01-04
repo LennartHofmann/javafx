@@ -5,9 +5,10 @@ import javafx.scene.text.Font;
 
 public class Figure extends Button{
 
-	private Grid grid;
+	private Chess chess;
 	private Font textSize;
 	
+	private String defaultStyle;
 	
 	private boolean isThreatend = false;
 	private boolean isWhite;
@@ -24,9 +25,9 @@ public class Figure extends Button{
 	 * tape = 6 -> Koenig
 	 */
 	
-	public Figure(Grid grid) {
-		this.setGrid(grid);
-		this.setTextSize(this.grid.getTextSize());
+	public Figure(Chess chess) {
+		this.setChess(chess);
+		this.setTextSize(this.chess.getGrid().getTextSize());
 		this.type = 0;
 		
 		this.setPrefSize(80, 80);
@@ -35,17 +36,25 @@ public class Figure extends Button{
 		this.setFont(this.getTextSize());
 	}
 	
+	
+	public void setSelected() {
+		this.setStyle(this.getStyle() + " -fx-border-width: 5px; -fx-border-style: solid; -fx-border-color: #3d210e; -fx-border-radius: 5px;");
+	}
+	
+	
 	//Getters und Setters
-	public Grid getGrid() {
-		return grid;
-	}
-
-	public void setGrid(Grid grid) {
-		this.grid = grid;
-	}
+	
 
 	public boolean isThreatend() {
 		return isThreatend;
+	}
+
+	public Chess getChess() {
+		return chess;
+	}
+
+	public void setChess(Chess chess) {
+		this.chess = chess;
 	}
 
 	public void setThreatend(boolean isThreatend) {
@@ -69,57 +78,66 @@ public class Figure extends Button{
 		
 		if(this.type==0) {
 		}
-		else if (this.type==1) {
-			if(this.isWhite==true) {
-				this.setText("\u2659");
+		else {
+			this.setOnAction(this.getChess().fc);
+			if (this.type==1) {
+				if(this.isWhite==true) {
+					this.setText("\u2659");
+				}
+				else {
+					this.setText("\u265F");
+				}
 			}
-			else {
-				this.setText("\u265F");
+			if (this.type==2) {
+				if(this.isWhite==true) {
+					this.setText("\u2656");
+				}
+				else {
+					this.setText("\u265C");
+				}
 			}
-		}
-		else if (this.type==2) {
-			if(this.isWhite==true) {
-				this.setText("\u2656");
+			if (this.type==3) {
+				if(this.isWhite==true) {
+					this.setText("\u2658");
+				}
+				else {
+					this.setText("\u265E");
+				}
 			}
-			else {
-				this.setText("\u265C");
+			if (this.type==4) {
+				if(this.isWhite==true) {
+					this.setText("\u2657");
+				}
+				else {
+					this.setText("\u265D");
+				}
 			}
-		}
-		else if (this.type==3) {
-			if(this.isWhite==true) {
-				this.setText("\u2658");
+			if (this.type==5) {
+				if(this.isWhite==true) {
+					this.setText("\u2655");
+				}
+				else {
+					this.setText("\u265B");
+				}
 			}
-			else {
-				this.setText("\u265E");
-			}
-		}
-		else if (this.type==4) {
-			if(this.isWhite==true) {
-				this.setText("\u2657");
-			}
-			else {
-				this.setText("\u265D");
-			}
-		}
-		else if (this.type==5) {
-			if(this.isWhite==true) {
-				this.setText("\u2655");
-			}
-			else {
-				this.setText("\u265B");
-			}
-		}
-		else if (this.type==6) {
-			if(this.isWhite==true) {
-				this.setText("\u2654");
-			}
-			else {
-				this.setText("\u265A");
+			if (this.type==6) {
+				if(this.isWhite==true) {
+					this.setText("\u2654");
+				}
+				else {
+					this.setText("\u265A");
+				}
 			}
 		}
 		
+		
+		
 	}
 
+	public void setDefaultStyle() {
+		this.setStyle(this.getDefaultStyle());
+	}
+	
 	public Font getTextSize() {
 		return textSize;
 	}
@@ -128,4 +146,17 @@ public class Figure extends Button{
 		this.textSize = textSize;
 	}
 
+	public String getDefaultStyle() {
+		return defaultStyle;
+	}
+
+	public void setDefaultStyle(String defaultStyle) {
+		this.defaultStyle = defaultStyle;
+	}
+
+	
+
+	
+	
+	
 }

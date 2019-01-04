@@ -13,17 +13,17 @@ import javafx.scene.text.Font;
 
 public class Chess extends HBox{
 	
-	Grid grid = new Grid();
+	private Grid grid = new Grid();
 	Controls controls;
 	
-
+	Figure_Controller fc;
 	
 	public boolean isWhitesTurn = true;
-	public int selectedFigure = 0;
 	
 	
 	public Chess() {
-		this.grid.initialise();
+		this.fc = new Figure_Controller(this);
+		this.grid.initialise(this);
 		this.controls = new Controls(this);		
 		
 		this.getChildren().add(grid);
@@ -40,6 +40,16 @@ public class Chess extends HBox{
 
 	public void setWhitesTurn(boolean isWhitesTurn) {
 		this.isWhitesTurn = isWhitesTurn;
+	}
+
+
+	public Grid getGrid() {
+		return grid;
+	}
+
+
+	public void setGrid(Grid grid) {
+		this.grid = grid;
 	}
 	
 	/*
@@ -68,5 +78,7 @@ public class Chess extends HBox{
 		}
 	}
 	*/
-		
+	
+	
+	
 }

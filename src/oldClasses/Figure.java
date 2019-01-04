@@ -1,4 +1,4 @@
-package chess;
+package oldClasses;
 
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;

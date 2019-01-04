@@ -1,4 +1,4 @@
-package chess;
+package oldClasses;
 
 import com.sun.glass.events.MouseEvent;
 
