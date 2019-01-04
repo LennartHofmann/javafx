@@ -20,16 +20,8 @@ public class Launcher extends Application{
 	@Override
 	public void start(Stage stage01) throws Exception {
 		this.chess = new Chess();
-
-		
-		
-		this.chess.grid.chess = this.chess;
-		
-		
-		
 		this.chess.grid.initFigures();
 		
-		//Pferd funktioniert noch nicht vollständig 
 		
 		stage01.setScene(new Scene(chess));
 		stage01.setTitle("Chess");

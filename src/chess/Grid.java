@@ -9,7 +9,7 @@ public class Grid extends GridPane{
 
 	Chess chess;
 	
-	Figure_2_0[][] feld = new Figure_2_0[8][8];
+	Figure[][] feld = new Figure[8][8];
 	int spalte = 0;
 	int reihe = 0;
 	
@@ -24,7 +24,7 @@ public class Grid extends GridPane{
 	void initialise() {
 		for (int i = 0; i <= 7; i++) {
 			for (int z = 0; z <=7; z++) {
-				this.feld[i][z] = new Figure_2_0(this);
+				this.feld[i][z] = new Figure(this);
 				
 				if(((i+z) % 2)==0) {
 					this.feld[i][z].setStyle("-fx-background-color: #edb99a; -fx-padding:0px");

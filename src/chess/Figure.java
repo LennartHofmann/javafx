@@ -3,7 +3,7 @@ package chess;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 
-public class Figure_2_0 extends Button{
+public class Figure extends Button{
 
 	private Grid grid;
 	private Font textSize;
@@ -24,7 +24,7 @@ public class Figure_2_0 extends Button{
 	 * tape = 6 -> Koenig
 	 */
 	
-	public Figure_2_0(Grid grid) {
+	public Figure(Grid grid) {
 		this.setGrid(grid);
 		this.setTextSize(this.grid.getTextSize());
 		this.type = 0;
