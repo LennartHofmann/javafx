@@ -9,24 +9,61 @@ public class Pawn {
 		int row = GridPane.getRowIndex(pawn);
 		chess.Chess chess = pawn.getChess();
 				
+		
+		//normale Züge
 		if(chess.isWhitesTurn) {
-			if(row==6) {
+			if(row==7) {
 				if(chess.getGrid().getFigure(column, (row - 1)).getType()==0) {
 					chess.getGrid().getFigure(column, (row - 1)).setSelected();
 				}
-				if(chess.getGrid().getFigure(column, (row - 2)).getType()==0) {
+				if(chess.getGrid().getFigure(column, (row - 2)).getType()==0 && chess.getGrid().getFigure(column, (row - 1)).getType()==0) {
 					chess.getGrid().getFigure(column, (row - 2)).setSelected();
 				}
 			}
 			else {
-				if(row>0 && row<7) { 
+				if(1<row && row<8) { 
 					if(chess.getGrid().getFigure(column, (row - 1)).getType()==0) {
 						chess.getGrid().getFigure(column, (row - 1)).setSelected();
 					}
 				}
 			}
-			
 		}
+		else if (chess.isWhitesTurn==false) {
+			if(row==2) {
+				if(chess.getGrid().getFigure(column, (row + 1)).getType()==0) {
+					chess.getGrid().getFigure(column, (row + 1)).setSelected();
+				}
+				if(chess.getGrid().getFigure(column, (row + 2)).getType()==0 && chess.getGrid().getFigure(column, (row + 1)).getType()==0) {
+					chess.getGrid().getFigure(column, (row + 2)).setSelected();
+				}
+			}
+			else if(1<row && row<8){
+				if(chess.getGrid().getFigure(column, (row + 1)).getType()==0) {
+					chess.getGrid().getFigure(column, (row + 1)).setSelected();
+				}
+			}
+		}
+		
+		
+		//Schlagen von gegn. Figuren
+		
+		if(chess.isWhitesTurn && 1<row && row<8 && 1<column && column<8) {
+			if(chess.getGrid().getFigure(column-1, row-1).isWhite()==false && chess.getGrid().getFigure(column-1, row-1).getType()!=0) {
+				chess.getGrid().getFigure(column-1, row-1).setSelected();
+			}
+			if(chess.getGrid().getFigure(column+1, row-1).isWhite()==false && chess.getGrid().getFigure(column+1, row-1).getType()!=0) {
+				chess.getGrid().getFigure(column+1, row-1).setSelected();
+			}
+		}
+		else if (chess.isWhitesTurn==false && 1<row && row<8 && 1<column && column<8) {
+			if(chess.getGrid().getFigure(column-1, row+1).isWhite() && chess.getGrid().getFigure(column-1, row+1).getType()!=0) {
+				chess.getGrid().getFigure(column-1, row+1).setSelected();
+			}
+			if(chess.getGrid().getFigure(column+1, row+1).isWhite() && chess.getGrid().getFigure(column+1, row+1).getType()!=0) {
+				chess.getGrid().getFigure(column+1, row+1).setSelected();
+			}
+		}
+		
 		
 
 		

@@ -18,31 +18,34 @@ public class Figure_Controller implements EventHandler<javafx.event.ActionEvent>
 		if(event.getSource() instanceof Figure) {
 			Figure actualFigure = (Figure) event.getSource();
 			
-
-			
-			if(this.getChess().isWhitesTurn==actualFigure.isWhite() && actualFigure.getType()>0 && actualFigure.getType()<=6) {
-				this.chess.getGrid().setSelectedFigure(actualFigure);
+			if(this.getChess().isWhitesTurn==actualFigure.isWhite() && 0<actualFigure.getType() && actualFigure.getType()<7) {
 				this.chess.getGrid().resetGrid();			
 				
-											
-				if(actualFigure.getType()==1) {
-					figures.Pawn.pawnKlicked(actualFigure);
+				if(actualFigure==this.chess.getGrid().getSelectedFigure()) {
+					this.chess.getGrid().setSelectedFigure(new Figure(this.chess));
 				}
-				else if(actualFigure.getType()==2) {
-					//Turm
+				else {
+					this.chess.getGrid().setSelectedFigure(actualFigure);
+					if(actualFigure.getType()==1) {
+						figures.Pawn.pawnKlicked(actualFigure);
+					}
+					else if(actualFigure.getType()==2) {
+						//Turm
+					}
+					else if(actualFigure.getType()==3) {
+						//Pferd
+					}
+					else if(actualFigure.getType()==4) {
+						//Laeufer
+					}
+					else if(actualFigure.getType()==5) {
+						//Dame
+					}
+					else if(actualFigure.getType()==6) {
+						//Koenig
+					}
 				}
-				else if(actualFigure.getType()==3) {
-					//Pferd
-				}
-				else if(actualFigure.getType()==4) {
-					//Laeufer
-				}
-				else if(actualFigure.getType()==5) {
-					//Dame
-				}
-				else if(actualFigure.getType()==6) {
-					//Koenig
-				}
+
 			}			
 		}
 	}

@@ -19,8 +19,7 @@ public class Launcher extends Application{
 	
 	@Override
 	public void start(Stage stage01) throws Exception {
-		this.chess = new Chess();
-		this.chess.getGrid().initFigures();
+		this.chess = new Chess(stage01);
 		
 		
 		stage01.setScene(new Scene(chess));
@@ -28,6 +27,8 @@ public class Launcher extends Application{
 		//stage01.setResizable(false);
 		stage01.show();
 		
+		
+		//Todo: Bauern am seitlichen Rand dürfen trotzdem in die andere richtung schlagen
 		
 	}
 

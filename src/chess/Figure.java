@@ -38,7 +38,8 @@ public class Figure extends Button{
 	
 	
 	public void setSelected() {
-		this.setStyle(this.getStyle() + " -fx-border-width: 5px; -fx-border-style: solid; -fx-border-color: #3d210e; -fx-border-radius: 5px;");
+		this.setStyle(this.getStyle() + " -fx-background-radius: 10px; -fx-border-width: 5px; -fx-border-style: solid; -fx-border-color: #3d210e; -fx-border-radius: 5px;");
+		this.setOnAction(this.chess.rc);
 	}
 	
 	
@@ -67,6 +68,7 @@ public class Figure extends Button{
 
 	public void setWhite(boolean isWhite) {
 		this.isWhite = isWhite;
+		this.setType(this.getType());
 	}
 
 	public int getType() {
@@ -77,6 +79,8 @@ public class Figure extends Button{
 		this.type = type;
 		
 		if(this.type==0) {
+			this.setOnAction(null);
+			this.setText("");
 		}
 		else {
 			this.setOnAction(this.getChess().fc);

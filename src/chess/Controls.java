@@ -1,24 +1,32 @@
 package chess;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class Controls extends AnchorPane{
+public class Controls extends VBox{
 
 	public Chess chess;
 	
 	RadioButton radioButtonWhite;
 	RadioButton radioButtonBlack;
+	TextField firstFieldText;
+	TextField secondFieldText;
 	
-	RadioButton_Controller rbc = new RadioButton_Controller();
+	
+	Controls_Controller cc = new Controls_Controller();
 	
 	public Controls(Chess c) {
 		
 		this.chess = c;
-		this.rbc.chess = this.chess;
+		this.cc.chess = this.chess;
 		
 		TitledPane whosTurn = new TitledPane();
 		whosTurn.setCollapsible(false);
@@ -34,15 +42,49 @@ public class Controls extends AnchorPane{
 		this.radioButtonBlack.setText("schwarz");
 		this.radioButtonBlack.setToggleGroup(turn);
 		
-		this.radioButtonWhite.setOnAction(rbc);
-		this.radioButtonBlack.setOnAction(rbc);
+		this.radioButtonWhite.setOnAction(cc);
+		this.radioButtonWhite.setId("white");
+		this.radioButtonBlack.setOnAction(cc);
+		this.radioButtonBlack.setId("black");
 		
 		radioButtons.getChildren().add(this.radioButtonWhite);
 		radioButtons.getChildren().add(this.radioButtonBlack);
 		whosTurn.setContent(radioButtons);		
 		this.getChildren().add(whosTurn);
 		
-	
+		
+		
+		TitledPane changeFields = new TitledPane();
+		changeFields.setCollapsible(false);
+		changeFields.setText("Felder tauschen");
+		
+		VBox changeFieldsContent = new VBox();
+		
+		HBox firstField = new HBox();
+		Label firstFieldLabel = new Label("erstes Feld: ");
+		this.firstFieldText = new TextField();
+		firstFieldText.setMaxWidth(40);
+		firstField.getChildren().add(firstFieldLabel);
+		firstField.getChildren().add(firstFieldText);
+		changeFieldsContent.getChildren().add(firstField);
+		
+		HBox secondField = new HBox();
+		Label secondFieldLabel = new Label("erstes Feld: ");
+		this.secondFieldText = new TextField();
+		secondFieldText.setMaxWidth(40);
+		secondField.getChildren().add(secondFieldLabel);
+		secondField.getChildren().add(secondFieldText);
+		changeFieldsContent.getChildren().add(secondField);
+		
+		Button changeFieldsButton = new Button("Tauschen!");
+		changeFieldsButton.setId("change");
+		changeFieldsButton.setOnAction(cc);
+		changeFieldsContent.getChildren().add(changeFieldsButton);
+		
+		changeFields.setContent(changeFieldsContent);
+		
+		this.getChildren().add(changeFields);
+		
 		
 	}
 	
