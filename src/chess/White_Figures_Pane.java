@@ -18,6 +18,9 @@ public class White_Figures_Pane extends GridPane{
 	public White_Figures_Pane(Chess chess) {
 		this.chess = chess;
 		this.textSize = this.chess.getGrid().getTextSize();
+
+		this.setMinWidth(110);		
+		chess.getStage().sizeToScene();
 	}
 	
 	
@@ -55,7 +58,6 @@ public class White_Figures_Pane extends GridPane{
 			column = 0;
 			row = row + 1;
 		}
-		this.setPrefWidth(110);		
 		chess.getStage().sizeToScene();
 		
 	}

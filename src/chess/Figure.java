@@ -10,7 +10,8 @@ public class Figure extends Button{
 	
 	private String defaultStyle;
 	
-	private boolean isThreatend = false;
+	private boolean isThreatendForWhite = false;
+	private boolean isThreatendForBlack = true;
 	private boolean isWhite;
 	
 
@@ -44,11 +45,6 @@ public class Figure extends Button{
 	
 	
 	//Getters und Setters
-	
-
-	public boolean isThreatend() {
-		return isThreatend;
-	}
 
 	public Chess getChess() {
 		return chess;
@@ -56,10 +52,6 @@ public class Figure extends Button{
 
 	public void setChess(Chess chess) {
 		this.chess = chess;
-	}
-
-	public void setThreatend(boolean isThreatend) {
-		this.isThreatend = isThreatend;
 	}
 
 	public boolean isWhite() {
@@ -156,6 +148,26 @@ public class Figure extends Button{
 
 	public void setDefaultStyle(String defaultStyle) {
 		this.defaultStyle = defaultStyle;
+	}
+
+
+	public boolean isThreatendForWhite() {
+		return isThreatendForWhite;
+	}
+
+
+	public void setThreatendForWhite(boolean isThreatendForWhite) {
+		this.isThreatendForWhite = isThreatendForWhite;
+	}
+
+
+	public boolean isThreatendForBlack() {
+		return isThreatendForBlack;
+	}
+
+
+	public void setThreatendForBlack(boolean isThreatendForBlack) {
+		this.isThreatendForBlack = isThreatendForBlack;
 	}
 
 	

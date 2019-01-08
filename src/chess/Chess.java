@@ -24,14 +24,22 @@ public class Chess extends HBox{
 	
 	Figure_Controller fc;
 	Recieve_Controller rc;
+	Castling_Controller cc;
+	
 	
 	public boolean isWhitesTurn = true;
 	
+	private boolean longWhiteCastling = true;
+	private boolean shortWhiteCastling = true;
+	private boolean longBlackCastling = true;
+	private boolean shortBlackCastling = true;
+		
 	
 	public Chess(Stage stage) {
 		this.setStage(stage);
 		this.fc = new Figure_Controller(this);
 		this.rc = new Recieve_Controller(this);
+		this.cc = new Castling_Controller(this);
 		this.grid.initialise(this);
 		this.controls = new Controls(this);		
 		
@@ -49,79 +57,59 @@ public class Chess extends HBox{
 	public boolean isWhitesTurn() {
 		return isWhitesTurn;
 	}
-
-
 	public void setWhitesTurn(boolean isWhitesTurn) {
 		this.isWhitesTurn = isWhitesTurn;
 	}
-
-
 	public Grid getGrid() {
 		return grid;
 	}
-
-
 	public void setGrid(Grid grid) {
 		this.grid = grid;
 	}
-
-
 	public Black_Figures_Pane getBlack_Figures_Pane() {
 		return black_Figures_Pane;
 	}
-
-
 	public void setBlack_Figures_Pane(Black_Figures_Pane black_Figures_Pane) {
 		this.black_Figures_Pane = black_Figures_Pane;
 	}
-
-
 	public Stage getStage() {
 		return stage;
 	}
-
-
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}
-
-
 	public White_Figures_Pane getWhite_Figures_Pane() {
 		return white_Figures_Pane;
 	}
-
-
 	public void setWhite_Figures_Pane(White_Figures_Pane white_Figures_Pane) {
 		this.white_Figures_Pane = white_Figures_Pane;
 	}
-	
-	/*
-	public void deselectOtherControllers(int i) {
-		//Resette alle Controller, auﬂer den gew‰hlten (‹bergeben via int i)
-		if(i!=0) {
-			
-		}
-		if(i!=1) {
-			this.pawn.isSelected = false;
-		}
-		if(i!=2) {
-			this.rook.isSelected = false;
-		}
-		if(i!=3) {
-	
-		}
-		if(i!=4) {
-			this.bishop.isSelected = false;
-		}
-		if(i!=5) {
-			this.queen.isSelected = false;
-		}
-		if(i!=6) {
-			this.king.isSelected = false;
-		}
+	public boolean isLongWhiteCastling() {
+		return longWhiteCastling;
 	}
-	*/
+	public void setLongWhiteCastling(boolean longWhiteCastling) {
+		this.longWhiteCastling = longWhiteCastling;
+	}
+	public boolean isShortWhiteCastling() {
+		return shortWhiteCastling;
+	}
+	public void setShortWhiteCastling(boolean shortWhiteCastling) {
+		this.shortWhiteCastling = shortWhiteCastling;
+	}
+	public boolean isLongBlackCastling() {
+		return longBlackCastling;
+	}
+	public void setLongBlackCastling(boolean longBlackCastling) {
+		this.longBlackCastling = longBlackCastling;
+	}
+	public boolean isShortBlackCastling() {
+		return shortBlackCastling;
+	}
+	public void setShortBlackCastling(boolean shortBlackCastling) {
+		this.shortBlackCastling = shortBlackCastling;
+	}
 	
-	
-	
+	public Castling_Controller getCc() {
+		return cc;
+	}
 }

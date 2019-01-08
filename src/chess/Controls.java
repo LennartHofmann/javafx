@@ -1,6 +1,8 @@
 package chess;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -10,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 public class Controls extends VBox{
 
@@ -19,8 +22,7 @@ public class Controls extends VBox{
 	RadioButton radioButtonBlack;
 	TextField firstFieldText;
 	TextField secondFieldText;
-	
-	
+	Label lastTurnLabel;	
 	Controls_Controller cc = new Controls_Controller();
 	
 	public Controls(Chess c) {
@@ -52,6 +54,16 @@ public class Controls extends VBox{
 		whosTurn.setContent(radioButtons);		
 		this.getChildren().add(whosTurn);
 		
+		TitledPane lastTurn = new TitledPane();
+		lastTurn.setCollapsible(false);
+		lastTurn.setText("letzter Spielzug:");
+		VBox lastTurnContent = new VBox();
+		lastTurnLabel = new Label();
+		lastTurnLabel.setFont(new Font(17));
+		lastTurnContent.getChildren().add(lastTurnLabel);
+		lastTurn.setContent(lastTurnContent);
+		this.getChildren().add(lastTurn);
+		
 		
 		
 		TitledPane changeFields = new TitledPane();
@@ -79,11 +91,12 @@ public class Controls extends VBox{
 		Button changeFieldsButton = new Button("Tauschen!");
 		changeFieldsButton.setId("change");
 		changeFieldsButton.setOnAction(cc);
-		changeFieldsContent.getChildren().add(changeFieldsButton);
-		
+		changeFieldsContent.getChildren().add(changeFieldsButton);		
 		changeFields.setContent(changeFieldsContent);
-		
 		this.getChildren().add(changeFields);
+		
+		
+		this.setMinWidth(110);
 		
 		
 	}

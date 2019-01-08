@@ -46,26 +46,31 @@ public class Pawn {
 		
 		
 		//Schlagen von gegn. Figuren
-		
-		if(chess.isWhitesTurn && 1<row && row<8 && 1<column && column<8) {
-			if(chess.getGrid().getFigure(column-1, row-1).isWhite()==false && chess.getGrid().getFigure(column-1, row-1).getType()!=0) {
-				chess.getGrid().getFigure(column-1, row-1).setSelected();
+		if(chess.isWhitesTurn && 1<row && row<8) {
+			if(column>1) {
+				if(chess.getGrid().getFigure(column-1, row-1).isWhite()==false && chess.getGrid().getFigure(column-1, row-1).getType()!=0) {
+					chess.getGrid().getFigure(column-1, row-1).setSelected();
+				}
 			}
-			if(chess.getGrid().getFigure(column+1, row-1).isWhite()==false && chess.getGrid().getFigure(column+1, row-1).getType()!=0) {
-				chess.getGrid().getFigure(column+1, row-1).setSelected();
-			}
-		}
-		else if (chess.isWhitesTurn==false && 1<row && row<8 && 1<column && column<8) {
-			if(chess.getGrid().getFigure(column-1, row+1).isWhite() && chess.getGrid().getFigure(column-1, row+1).getType()!=0) {
-				chess.getGrid().getFigure(column-1, row+1).setSelected();
-			}
-			if(chess.getGrid().getFigure(column+1, row+1).isWhite() && chess.getGrid().getFigure(column+1, row+1).getType()!=0) {
-				chess.getGrid().getFigure(column+1, row+1).setSelected();
+			if(column<8) {
+				if(chess.getGrid().getFigure(column+1, row-1).isWhite()==false && chess.getGrid().getFigure(column+1, row-1).getType()!=0) {
+					chess.getGrid().getFigure(column+1, row-1).setSelected();
+				}
 			}
 		}
-		
-		
+		else if (chess.isWhitesTurn==false && 1<row && row<8 ) {		
+			if(column>1) {
+				if(chess.getGrid().getFigure(column-1, row+1).isWhite() && chess.getGrid().getFigure(column-1, row+1).getType()!=0) {
+					chess.getGrid().getFigure(column-1, row+1).setSelected();
+				}
+			}
+			if(column<8) {
+				if(chess.getGrid().getFigure(column+1, row+1).isWhite() && chess.getGrid().getFigure(column+1, row+1).getType()!=0) {
+					chess.getGrid().getFigure(column+1, row+1).setSelected();
+				}
+			}
 
+		}
 		
 	}
 	

@@ -31,18 +31,23 @@ public class Figure_Controller implements EventHandler<javafx.event.ActionEvent>
 					}
 					else if(actualFigure.getType()==2) {
 						//Turm
+						figures.Rook.rookKlicked(actualFigure);
 					}
 					else if(actualFigure.getType()==3) {
 						//Pferd
+						figures.Knight.knightKlicked(actualFigure);
 					}
 					else if(actualFigure.getType()==4) {
 						//Laeufer
+						figures.Bishop.bishopKlicked(actualFigure);
 					}
 					else if(actualFigure.getType()==5) {
 						//Dame
+						figures.Queen.queenKlicked(actualFigure);
 					}
 					else if(actualFigure.getType()==6) {
 						//Koenig
+						figures.King.kingKlicked(actualFigure);
 					}
 				}
 

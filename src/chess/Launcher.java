@@ -28,7 +28,7 @@ public class Launcher extends Application{
 		stage01.show();
 		
 		
-		//Todo: Bauern am seitlichen Rand dürfen trotzdem in die andere richtung schlagen
+		
 		
 	}
 

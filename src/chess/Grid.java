@@ -153,6 +153,66 @@ public class Grid extends GridPane{
 	}
 	
 
+	public String getLabel(int column, int row) {
+		String label = new String();
+		
+		//erste Koordinate
+		if(column==1) {
+			label = "A";
+		}
+		else if (column==2) {
+			label = "B";
+		}
+		else if (column==3) {
+			label = "C";
+		}
+		else if (column==4) {
+			label = "D";
+		}
+		else if (column==5) {
+			label = "E";
+		}
+		else if (column==6) {
+			label = "F";
+		}
+		else if (column==7) {
+			label = "G";
+		}
+		else if (column==8) {
+			label = "H";
+		}
+		
+		
+		//zweite Coordinate
+		if(row==1) {
+			label = label + "8";
+		}
+		else if (row==2) {
+			label = label + "7";
+		}
+		else if (row==3) {
+			label = label + "6";
+		}
+		else if (row==4) {
+			label = label + "5";
+		}
+		else if (row==5) {
+			label = label + "4";
+		}
+		else if (row==6) {
+			label = label + "3";
+		}
+		else if (row==7) {
+			label = label + "2";
+		}
+		else if (row==8) {
+			label = label + "1";
+		}
+		
+		return label;
+	}
+	
+	
 	public int[] getCoordinates(String coordinatesString) {
 		int[] i = new int[2];
 		i[0]=0;
