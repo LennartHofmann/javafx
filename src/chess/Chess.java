@@ -22,9 +22,12 @@ public class Chess extends HBox{
 	private Black_Figures_Pane black_Figures_Pane;
 	private White_Figures_Pane white_Figures_Pane;
 	
+	private Pawn_Change_Stage pcs;
+	
 	Figure_Controller fc;
 	Recieve_Controller rc;
 	Castling_Controller cc;
+	Pawn_Change_Controller pcc;
 	
 	
 	public boolean isWhitesTurn = true;
@@ -40,6 +43,7 @@ public class Chess extends HBox{
 		this.fc = new Figure_Controller(this);
 		this.rc = new Recieve_Controller(this);
 		this.cc = new Castling_Controller(this);
+		this.pcc = new Pawn_Change_Controller(this);
 		this.grid.initialise(this);
 		this.controls = new Controls(this);		
 		
@@ -112,4 +116,22 @@ public class Chess extends HBox{
 	public Castling_Controller getCc() {
 		return cc;
 	}
+	
+	public Pawn_Change_Controller getPcc() {
+		return pcc;
+	}
+
+
+	public Pawn_Change_Stage getPcs() {
+		return pcs;
+	}
+
+
+	public void setPcs(Pawn_Change_Stage pcs) {
+		this.pcs = pcs;
+	}
+	
+	
+	
 }
+

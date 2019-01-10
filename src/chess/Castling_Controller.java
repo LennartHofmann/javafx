@@ -38,7 +38,7 @@ public class Castling_Controller implements EventHandler<ActionEvent>{
 					this.chess.getGrid().getFigure(5, 8).setType(0);
 					
 					this.chess.controls.lastTurnLabel.setText("O-O-O");
-					this.chess.getStage().sizeToScene();
+					//this.chess.getStage().sizeToScene();
 					
 				}
 				if(column==7) {
@@ -49,7 +49,7 @@ public class Castling_Controller implements EventHandler<ActionEvent>{
 					this.chess.getGrid().getFigure(5, 8).setType(0);
 					
 					this.chess.controls.lastTurnLabel.setText("O-O");
-					this.chess.getStage().sizeToScene();
+					//this.chess.getStage().sizeToScene();
 				}
 				this.chess.setLongWhiteCastling(false);
 				this.chess.setShortWhiteCastling(false);
@@ -63,7 +63,7 @@ public class Castling_Controller implements EventHandler<ActionEvent>{
 					this.chess.getGrid().getFigure(5, 1).setType(0);
 					
 					this.chess.controls.lastTurnLabel.setText("O-O-O");
-					this.chess.getStage().sizeToScene();
+					//this.chess.getStage().sizeToScene();
 				}
 				if(column==7) {
 					this.chess.getGrid().getFigure(7, 1).setType(6);
@@ -73,7 +73,7 @@ public class Castling_Controller implements EventHandler<ActionEvent>{
 					this.chess.getGrid().getFigure(5, 1).setType(0);
 					
 					this.chess.controls.lastTurnLabel.setText("O-O");
-					this.chess.getStage().sizeToScene();
+					//this.chess.getStage().sizeToScene();
 				}
 				this.chess.setLongBlackCastling(false);
 				this.chess.setShortBlackCastling(false);

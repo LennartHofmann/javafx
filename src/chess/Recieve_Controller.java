@@ -19,6 +19,7 @@ public class Recieve_Controller implements EventHandler<ActionEvent>{
 		if (event.getSource() instanceof Figure) {
 			Figure actualFigure = (Figure) event.getSource();
 			
+			//geschlagene Figur "aussen" hinzufügen
 			if(actualFigure.getType()!=0) {			
 				if(actualFigure.isWhite()) {
 					chess.getWhite_Figures_Pane().addFigure(actualFigure);
@@ -59,7 +60,7 @@ public class Recieve_Controller implements EventHandler<ActionEvent>{
 			}
 			
 			this.chess.controls.lastTurnLabel.setText(this.chess.getGrid().getSelectedFigure().getText() + this.chess.getGrid().getLabel(GridPane.getColumnIndex(this.chess.getGrid().getSelectedFigure()), GridPane.getRowIndex(this.chess.getGrid().getSelectedFigure())) + " \u21D2 " + actualFigure.getText() + this.chess.getGrid().getLabel(GridPane.getColumnIndex(actualFigure), GridPane.getRowIndex(actualFigure)));
-			this.chess.getStage().sizeToScene();
+			//this.chess.getStage().sizeToScene();
 			
 			//Figuren tauschen
 			actualFigure.setType(this.chess.getGrid().getSelectedFigure().getType());

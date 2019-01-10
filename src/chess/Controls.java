@@ -26,6 +26,8 @@ public class Controls extends VBox{
 	Controls_Controller cc = new Controls_Controller();
 	
 	public Controls(Chess c) {
+		this.setMinWidth(160);
+		
 		
 		this.chess = c;
 		this.cc.chess = this.chess;
@@ -96,7 +98,7 @@ public class Controls extends VBox{
 		this.getChildren().add(changeFields);
 		
 		
-		this.setMinWidth(110);
+		
 		
 		
 	}
